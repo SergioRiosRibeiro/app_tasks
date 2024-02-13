@@ -21,25 +21,18 @@ class PersonRepository(val context: Context) {
         call.enqueue(object : Callback<PersonModel> {
             override fun onResponse(call: Call<PersonModel>, response: Response<PersonModel>) {
                 if (response.code() == TaskConstants.HTTP.SUCCESS) {
-                    val s = ""
                     response.body()?.let { listener.onSuccess(it) }
                 } else {
                     failResponse(response.errorBody()!!.string()).let { listener.onFailure(it) }
-
                 }
-
             }
-
             override fun onFailure(call: Call<PersonModel>, t: Throwable) {
-                val s = ""
                 listener.onFailure(context.getString(R.string.ERROR_UNEXPECTED))
             }
-
         })
     }
 
     private fun failResponse(str: String): String {
         return Gson().fromJson(str, String::class.java)
     }
-
 }
