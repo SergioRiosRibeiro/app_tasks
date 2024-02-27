@@ -2,6 +2,7 @@ package com.devmasterteam.tasks.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.navigation.ui.NavigationUI
@@ -40,6 +42,8 @@ class MainActivity : AppCompatActivity() {
 
         // Navegação
         setupNavigation()
+
+        viewModel.load()
 
         // Observadores
         observe()
@@ -78,6 +82,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-
+        viewModel.name.observe(this) {
+            val header = binding.navView.getHeaderView(0)
+            header.findViewById<TextView>(R.id.text_name).text = it
+        }
     }
 }
