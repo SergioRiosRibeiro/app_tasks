@@ -8,7 +8,7 @@ Este aplicativo é um **gerenciador de tarefas** desenvolvido para dispositivos 
 - **Framework:** Android SDK
 - **Banco de Dados:** Room (SQLite)
 - **Autenticação:** Biometria (Fingerprint/Face ID)
-- **Padrão de Arquitetura:** Provavelmente MVVM (baseado nos repositórios e listeners encontrados)
+- **Padrão de Arquitetura:** MVVM
 
 ## 3. Estrutura do Projeto
 O projeto segue uma estrutura modular bem definida:
@@ -59,10 +59,4 @@ Se o aplicativo depender de uma API externa, verifique se há um arquivo `gradle
 ✅ Autenticação biométrica para segurança
 ✅ Integração com banco de dados local (Room)
 ✅ Suporte a prioridades de tarefas
-
-## 6. Melhorias Futuras
-🔹 Melhor documentação no README.md
-🔹 Implementação de testes automatizados
-🔹 Melhor otimização do uso de API
-
 ---
